@@ -19,6 +19,7 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.handler.HandlerResolver;
 import javax.xml.ws.handler.MessageContext;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -51,7 +52,7 @@ class SdkAPIInterfaceServiceLocator {
   static {
     try {
       //by default, wsdl is in the root package
-      URL url = EBayAPIInterfaceService.class.getClassLoader().getResource(EBAY_WSDL);
+      URL url = EBayAPIInterfaceService.class.getResource(EBAY_WSDL);
       if (url == null) {
         throw new SdkException("fail to load ebay wsdl, please ensure that " + EBAY_WSDL + " is in the classpath!");
       }
